@@ -6,16 +6,17 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONArray
+import uk.co.natashar26hotmail.matchcentre.R.layout.activity_main
 import java.net.HttpURLConnection
 import java.net.URL
 
-class MainActivity : AppCompatActivity() {
+class MainActivity  : AppCompatActivity()  {
 
 
     lateinit var pDialog:ProgressDialog
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(activity_main)
         val url="https://feeds.incrowdsports.com/provider/opta/football/v1/matches/987597/commentary"
         AsyncTaskHandler().execute(url)
     }
@@ -65,19 +66,19 @@ class MainActivity : AppCompatActivity() {
                val jsonObject=jsonArray.getJSONObject(i)
                 list.add(
                     MatchCommentary(
-                    jsonObject.getInt(name:"id"),
-                        jsonObject.getInt(name:"feedMatchId"),
-                        jsonObject.getString(name:"homeTeamName"),
-                        jsonObject.getInt(name:"homeTeamId"),
-                        jsonObject.getInt(name:"homeScore"),
-                        jsonObject.getString(name:"awayTeamName"),
-                        jsonObject.getInt(name:"awayTeamId"),
-                        jsonObject.getInt(name:"awayScore"),
-                        jsonObject.getInt(name:"competitionId"),
-                        jsonObject.getString(name:"competition"),
-                        jsonObject.getString(name:"type"),
-                        jsonObject.getString(name:"comment"),
-                        jsonObject.getInt(name:"period")
+                    jsonObject.getInt("id"),
+                        jsonObject.getInt("feedMatchId"),
+                        jsonObject.getString("homeTeamName"),
+                        jsonObject.getInt("homeTeamId"),
+                        jsonObject.getInt("homeScore"),
+                        jsonObject.getString("awayTeamName"),
+                        jsonObject.getInt("awayTeamId"),
+                        jsonObject.getInt("awayScore"),
+                        jsonObject.getInt("competitionId"),
+                        jsonObject.getString("competition"),
+                        jsonObject.getString("type"),
+                        jsonObject.getString("comment"),
+                        jsonObject.getInt("period")
                 )
                 )
                 i++

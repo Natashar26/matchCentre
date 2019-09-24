@@ -13,4 +13,5 @@ data class MatchCommentary(
     val competition:String,
     val type:String,
     val comment:String,
-    val period:Int)
+    val period:Int
+)
